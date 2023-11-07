@@ -75,10 +75,19 @@ WSGI_APPLICATION = 'APICESAR.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
+    #'default':{
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #   'NAME':BASE_DIR/'db.sqlite3',
+    #},
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'favorita',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost', # o la direccion de tu servidor de tu base
+        'PORT': '5432', # PUERTO POR DEFAULT 
     }
 }
 
@@ -125,3 +134,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'cesaradair2105.2105@gmail.com'
+EMAIL_HOST_PASSWORD = 'zvhbqqeoiskcligq'
+DEFAULT_FROM_EMAIL = 'cesaradair2105.2105@gmail.com'
